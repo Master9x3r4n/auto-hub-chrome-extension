@@ -1,37 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body { 
-          width: 200px; 
-          padding: 15px; 
-          font-family: sans-serif; 
-        }
-        .switch-container { 
-          display: flex; 
-          align-items: 
-          center; gap: 10px; 
-        }
-        .header {
-          display: flex; 
-          align-items: center; 
-          gap: 5px; 
-          color:#006934; 
-          font-family: Arial, Helvetica, sans-serif;
-        }
-        label {
-          color: #172b4c;
-          font-family: Arial, Helvetica, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="popup.css">
 </head>
 <body>
     <div class="header">
       <image src="images/icon.png" width="40px"></image>
       <h3>AutoHub</h3>
     </div>
+    <br>
     <div class="switch-container">
-        <input type="checkbox" id="toggle-switch">
+        <label class="switch">
+          <input type="checkbox" id="toggle-switch">
+          <span class="slider round"></span>
+        </label>
+
         <label for="toggle-switch">Enable AutoHub</label>
     </div>
 
