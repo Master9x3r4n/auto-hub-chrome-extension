@@ -1,4 +1,3 @@
-// background.js
 
 //This shit is the ocr, thank you gemini
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

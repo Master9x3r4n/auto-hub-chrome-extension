@@ -1,24 +1,33 @@
 //website itself
 
-// User details
-const studentId = ENV.STUDENT_ID;
-const password = ENV.PASSWORD;
-
-document.getElementById("txtuserid").value = studentId;
-document.getElementById("txtpassword").value = password;
-
-// Captcha handling
-const targetImg = document.getElementById("captchaImageLogin");
-
-if (targetImg) {
-    if (targetImg.complete) {
-        processImage(targetImg);
-    } else {
-        targetImg.onload = () => processImage(targetImg);
+const triggerExtension = () => {
+    // User details
+    const studentId = ENV.STUDENT_ID;
+    const password = ENV.PASSWORD;
+    
+    document.getElementById("txtuserid").value = studentId;
+    document.getElementById("txtpassword").value = password;
+    
+    // Captcha handling
+    const targetImg = document.getElementById("captchaImageLogin");
+    
+    if (targetImg) {
+        if (targetImg.complete) {
+            processImage(targetImg);
+        } else {
+            targetImg.onload = () => processImage(targetImg);
+        }
     }
 }
 
-function processImage(img) {
+chrome.storage.local.get(['extensionEnabled'], (result) => {
+    if (result.extensionEnabled === true) // something something type checking
+    {
+        triggerExtension();
+    }
+});
+
+const processImage = (img) => {
     // 1. Grab the pixels from the screen
     const canvas = document.createElement('canvas');
     canvas.width = img.naturalWidth;
