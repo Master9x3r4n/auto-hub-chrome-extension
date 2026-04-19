@@ -25,10 +25,10 @@ toggleSwitch.addEventListener('change', (event) => {
         console.log("Extension state saved as:", isChecked);
 
         // refresh page
-        if (isChecked) {
-            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (isChecked && tabs[0].url === "https://archershub.dlsu.edu.ph/") {
                 chrome.tabs.reload(tabs[0].id);
-            });
-        }
+            }
+        });
     });
 });
