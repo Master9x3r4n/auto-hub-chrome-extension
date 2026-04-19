@@ -1,10 +1,21 @@
 {
-  "name": "Hello Extensions",
-  "description": "Base Level Extension",
+  "name": "Login Archershub",
+  "description": "Autofills login information in a certain shitty college website",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_popup": "index.html",
-    "default_icon": "stephen_lloyd.png"
+    "default_popup": "popup.html",
+    "default_icon": "images/stephen_lloyd.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["config.js", "scripts/content.js"],
+      "matches": [
+        "https://archershub.dlsu.edu.ph/"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
   }
 }
