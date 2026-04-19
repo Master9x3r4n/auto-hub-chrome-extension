@@ -40,9 +40,10 @@ function processImage(img) {
             if (response.error || !response.text) {
                 console.log(`OCR Failed: ${response.error || 'No text found'}`);
             } else {
-                console.log(`Generated text: ${response.text}`);
+                console.log(`Generated text: ${response.text.replace(/ /g, "")}`);
                 const textOutput = document.getElementById("txtCaptchaTextLogin");
-                if (textOutput) textOutput.value = response.text;
+                if (textOutput) textOutput.value = response.text.replace(/ /g, "");
+                if (ENV.AUTO_LOGIN) document.querySelector("#btnSignIn").click();
             }
         }
     );
