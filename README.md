@@ -24,5 +24,5 @@ Autohub is a chrome browser extension that allows you to automatically fill in t
 - Whenever you head to the login page for the Terrible College Website, the extension automatically fills in the fields for you.
 
 ### 🤖 Development
-- Gemini helped me for the OCR part bruh
+- Gemini helped me for the OCR part and claude helped with the enable/disable settings bruh
 - Everything else done by moi
