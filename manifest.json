@@ -1,6 +1,6 @@
 {
-  "name": "Autologin Bad College Website",
-  "description": "Autofills login information in a certain shitty college website",
+  "name": "AutoHub Extension",
+  "description": "Chrome Extension that autofills login information and captcha for a certain bad college website...",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
