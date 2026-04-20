@@ -1,7 +1,7 @@
 {
   "name": "AutoHub Extension",
   "description": "Chrome Extension that autofills login information and captcha for a certain bad college website...",
-  "version": "1.0",
+  "version": "1.0.3",
   "manifest_version": 3,
   "action": {
     "default_popup": "popup.html",
