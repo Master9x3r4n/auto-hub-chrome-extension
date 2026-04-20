@@ -6,7 +6,7 @@ Autohub is a chrome browser extension that allows you to automatically fill in t
 
 ## 🗿 Features
 - Auto fill Student Id and Password details (both are optional fields)
-- Auto-fills the captcha (with 90% accuracy)
+- Auto-fills the captcha with 90% accuracy. (It only really confuses 1 and I)
 - Option to automatically log-in:
   - Set this to **false** if you want to verify the captcha accuracy
   - Set this to **true** if you want a lazy experience. (The extension tries again if the captcha fails!)
