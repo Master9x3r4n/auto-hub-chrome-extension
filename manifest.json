@@ -22,7 +22,9 @@
     {
       "js": ["config.js", "scripts/content.js"],
       "matches": [
-        "https://archershub.dlsu.edu.ph/"
+        "https://archershub.dlsu.edu.ph/",
+        "https://archershub.dlsu.edu.ph/StudentDashboard",
+        "https://archershub.dlsu.edu.ph/Enlistment/Index/2"
       ]
     }
   ],

@@ -1,5 +1,24 @@
 //website itself
 
+// Check if redirect option is on
+chrome.storage.local.get(['redirectEnabled'], (res) => {
+    if (res.redirectEnabled === true && window.location.href === "https://archershub.dlsu.edu.ph/StudentDashboard") {
+        setTimeout(() => {
+            window.location.href = "https://archershub.dlsu.edu.ph/Enlistment/Index/2";
+        }, 1250);
+    }
+})
+
+// Check if extension is enabled
+chrome.storage.local.get(['extensionEnabled'], (res) => {
+    if (res.extensionEnabled === true) // something something type checking
+    {
+        triggerExtension();
+    }
+});
+
+
+// HELPER FUNCTIONS
 const triggerExtension = () => {
     // User details
     const studentId = ENV.STUDENT_ID;
@@ -19,13 +38,6 @@ const triggerExtension = () => {
         }
     }
 }
-
-chrome.storage.local.get(['extensionEnabled'], (result) => {
-    if (result.extensionEnabled === true) // something something type checking
-    {
-        triggerExtension();
-    }
-});
 
 const processImage = (img) => {
     // 1. Grab the pixels from the screen
@@ -52,7 +64,11 @@ const processImage = (img) => {
                 console.log(`Generated text: ${response.text.replace(/ /g, "")}`);
                 const textOutput = document.getElementById("txtCaptchaTextLogin");
                 if (textOutput) textOutput.value = response.text.replace(/ /g, "");
-                if (ENV.AUTO_LOGIN) document.querySelector("#btnSignIn").click();
+
+                // Auto sign in
+                if (ENV.AUTO_LOGIN) {
+                    document.querySelector("#btnSignIn").click();
+                }
             }
         }
     );
