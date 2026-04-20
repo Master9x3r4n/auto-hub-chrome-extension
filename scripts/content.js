@@ -69,7 +69,7 @@ const processImage = (img) => {
             } else {
                 console.log(`Generated text: ${response.text.replace(/ /g, "")}`);
                 const textOutput = document.getElementById("txtCaptchaTextLogin");
-                if (textOutput) textOutput.value = response.text.replace(/ /g, "");
+                if (textOutput) textOutput.value = response.text.replace(/[^a-zA-Z0-9]/g, "");
 
                 // Auto sign in
                 if (auto_login) {
