@@ -1,5 +1,11 @@
 //website itself
 
+// Check if autologin is on
+let auto_login = false;
+chrome.storage.local.get(['autologEnabled'], (res) => {
+    auto_login = res.autologEnabled;
+});
+
 // Check if redirect option is on
 chrome.storage.local.get(['redirectEnabled'], (res) => {
     if (res.redirectEnabled === true && window.location.href === "https://archershub.dlsu.edu.ph/StudentDashboard") {
@@ -7,7 +13,7 @@ chrome.storage.local.get(['redirectEnabled'], (res) => {
             window.location.href = "https://archershub.dlsu.edu.ph/Enlistment/Index/2";
         }, 1250);
     }
-})
+});
 
 // Check if extension is enabled
 chrome.storage.local.get(['extensionEnabled'], (res) => {
@@ -66,7 +72,7 @@ const processImage = (img) => {
                 if (textOutput) textOutput.value = response.text.replace(/ /g, "");
 
                 // Auto sign in
-                if (ENV.AUTO_LOGIN) {
+                if (auto_login) {
                     document.querySelector("#btnSignIn").click();
                 }
             }

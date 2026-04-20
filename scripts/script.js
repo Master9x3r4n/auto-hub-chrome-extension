@@ -34,6 +34,33 @@ toggleEnable.addEventListener('change', (e) => {
     });
 });
 
+// Toggle for auto login
+const toggleLogin = document.getElementById('toggle-login');
+chrome.storage.local.get(['autologEnabled'], (res) => {
+    if (chrome.runtime.lastError) {
+        console.error("Storage read error:", chrome.runtime.lastError);
+        return;
+    }
+
+    if (res.autologEnabled === undefined) {
+        chrome.storage.local.set({ autologEnabled: false });
+        toggleLogin.checked = false;
+    } else {
+        toggleLogin.checked = res.autologEnabled;
+    }
+});
+
+toggleLogin.addEventListener('change', (e) => {
+    const isChecked = e.target.checked;
+    chrome.storage.local.set({ autologEnabled: isChecked }, () => {
+        if (chrome.runtime.lastError) {
+            console.error("Storage write error:", chrome.runtime.lastError);
+            return;
+        }
+        console.log("Auto login state saved as:", isChecked);
+    })
+});
+
 // Toggle for enabling redirect
 const toggleRedirect = document.getElementById('toggle-redirect');
 chrome.storage.local.get(['redirectEnabled'], (res) => {
