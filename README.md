@@ -2,7 +2,7 @@
 
 Autohub is a chrome browser extension that allows you to automatically fill in tedious log in and captcha data for a certain terrible college website....
 
-**Works only for Google Chrome browsers**
+**Works only for Chromium browsers**
 
 ## 🗿 Features
 - Auto fill Student Id and Password details (both are optional fields)
