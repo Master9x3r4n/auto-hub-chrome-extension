@@ -1,3 +1,5 @@
+WARNING: As of April 26, 2026. The auto-captcha is not working. I will be working on a fix for this eventually.
+
 # 🏹 AutoHub Chrome Extension
 
 Autohub is a chrome browser extension that allows you to automatically fill in tedious log in and captcha data for a certain terrible college website....
